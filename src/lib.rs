@@ -43,9 +43,7 @@ impl Universe {
     fn get_index(&self, row: u32, column: u32) -> usize {
         (row * self.width + column) as usize
     }
-}
 
-impl Universe {
     fn live_neighbor_count(&self, row: u32, column: u32) -> u8 {
         let mut count = 0;
         for delta_row in [self.height - 1, 0, 1].iter().cloned() {
@@ -98,13 +96,6 @@ impl Universe {
 
         self.cells = next;
     }
-
-    // ...
-}
-
-#[wasm_bindgen]
-impl Universe {
-    // ...
 
     pub fn new() -> Universe {
         let width = 64;
